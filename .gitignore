@@ -292,3 +292,4 @@ ssip4/media/
 .env
 .envs/*
 !.envs/.local/
+.vscode/*
