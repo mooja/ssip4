@@ -1,9 +1,6 @@
 
-@import "custom_bootstrap_vars";
-@import "bootstrap";
-
-
-
+// @import "custom_bootstrap_vars";
+// @import "bootstrap";
 
 // project specific CSS goes here
 
@@ -37,4 +34,8 @@ $red: #b94a48;
   background-color: $pink;
   border-color: $dark-pink;
   color: $red;
+}
+
+body {
+  background-color: palevioletred;
 }
