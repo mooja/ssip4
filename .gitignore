@@ -292,4 +292,5 @@ ssip4/media/
 .env
 .envs/*
 !.envs/.local/
-.vscode/*
+.vscode/settings.json
+ssip4/fixtures
