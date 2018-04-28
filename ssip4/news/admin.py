@@ -7,7 +7,7 @@ from .models import NewsEntry
 
 class NewsEntryAdminForm(forms.ModelForm):
     # text = forms.CharField(widget=SummernoteWidget)
-    text = forms.CharField()
+    text = forms.CharField(widget=forms.Textarea)
 
     class Meta:
         model = NewsEntry
