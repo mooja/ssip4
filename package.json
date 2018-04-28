@@ -1,0 +1,19 @@
+{
+  "name": "ssip4",
+  "version": "1.0.0",
+  "description": "SSIP209 Informational Website",
+  "repository": "https://github.com/mooja/ssip4.git",
+  "author": "Max Shkurygin",
+  "license": "MIT",
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.0.0",
+    "css-loader": "^0.28.11",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "typescript": "^2.8.3",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
+}

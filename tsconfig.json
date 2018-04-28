@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "./ssip4/static/js/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "module": "es6",
+        "target": "es5",
+        "allowJs": true,
+        "jsx": "react"
+    },
+    "include": [
+        "./ssip4/static/typescript/*.js"
+    ]
+}
