@@ -238,3 +238,4 @@ SOCIALACCOUNT_ADAPTER = 'ssip4.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+MEMBERS_PASSWORD = env('MEMBERS_PASSWORD')

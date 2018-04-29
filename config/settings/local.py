@@ -64,3 +64,5 @@ INSTALLED_APPS += ['django_extensions']  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# simple password in development mode
+MEMBERS_PASSWORD = env('MEMBERS_PASSWORD', default='123')
