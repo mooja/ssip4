@@ -1,6 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Settled and Serving in Place</h1>
+  <p class="lead">Staying Independent and Happy In Our Own Homes</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
 
-<h1> Hello World!</h1>
+<div class="row">
+    <div class="col-md-6">
+    {% for news_entry in membernews_entries %}
+        <div class="card">
+            <div class="card-header">
+                {{ news_entry.title }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{ news_entry.text|safe }}
+                </p>
+            </div>
+            <div class="class-footer text-muted">
+              {{ news_entry.created|date:"F jS, Y" }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="col-md-6">
+    {% for news_entry in localnews_entries %}
+        <div class="card">
+            <div class="card-header">
+                {{ news_entry.title }}
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    {{ news_entry.text|safe }}
+                </p>
+            </div>
+            <div class="class-footer text-muted">
+                 {{ news_entry.created|date:"F jS, Y" }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+
 {% endblock content %}
