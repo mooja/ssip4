@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Members{% endblock %}
+
+{% load static %}
+
+{% block splash %}
+    SSIP 209 Members
+{% endblock %}
+
+{% block sidebar %}
+    <ul>
+        {% for member in member_list %}
+        <li><a href="#{{ member.id }}">{{ member.last_name }}, {{ member.first_name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock sidebar %}
+
+{% block content %}
+{% comment %}
+<form role="form">
+        <button type="button" class="btn btn-lg btn-default" onclick="location.href='{% url 'members:member_list_pdf'%}'">Printable Version</button>
+</form>
+{% endcomment %}
+ 
+
+{% for member in member_list %}
+    <h3 class="media-heading name" id="{{ member.id }}">
+        {{ member.last_name }}, {{ member.first_name }}
+    </h3>
+
+    <address>
+    {% if member.address or member.town %}
+    {{ member.address }}
+    {% if member.town %}, {{ member.town }} NY {% endif %}
+    <br>
+    {% endif %}
+
+    {% if member.homephone %}
+    (Home) {{ member.homephone }} <br>
+    {% endif %}
+
+    {% if member.cellphone %}
+    (Cell) {{ member.cellphone }} <br>
+    {% endif %}
+
+    {% if member.email %}
+    <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+    {% endif %}
+    </address>
+
+    <dl>
+    {% if member.hobbies %}
+        <dt>My Hobbies</dt> 
+        <dd> {{ member.hobbies }}</dd>
+        <br>
+    {% endif %}
+    {% if member.canhelp %}
+        <dt>I can help with</dt>
+        <dd> {{ member.canhelp }} </dd>
+        <br>
+    {% endif %}
+
+    {% if member.needhelp %}
+        <dt>I could use help with</dt> 
+        <dd>{{ member.needhelp }}</dd>
+    {% endif %}
+    </dl>
+<hr>
+{% endfor %}
+{% endblock content %}
