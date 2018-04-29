@@ -36,6 +36,6 @@ $red: #b94a48;
   color: $red;
 }
 
-body {
-  background-color: palevioletred;
+.card + .card {
+  margin-top: 1em;
 }
