@@ -17,53 +17,45 @@
 {% endblock sidebar %}
 
 {% block content %}
-<form role="form">
-        <button type="button" class="btn btn-lg btn-default" onclick="location.href='{% url 'members:member_list_pdf' %}'">Printable Version</button>
-</form>
- 
-
-{% for member in member_list %}
-    <h3 class="media-heading name" id="{{ member.id }}">
-        {{ member.last_name }}, {{ member.first_name }}
-    </h3>
-
-    <address>
-    {% if member.address or member.town %}
-    {{ member.address }}
-    {% if member.town %}, {{ member.town }} NY {% endif %}
-    <br>
-    {% endif %}
-
-    {% if member.homephone %}
-    (Home) {{ member.homephone }} <br>
-    {% endif %}
-
-    {% if member.cellphone %}
-    (Cell) {{ member.cellphone }} <br>
-    {% endif %}
-
-    {% if member.email %}
-    <a href="mailto:{{ member.email }}">{{ member.email }}</a>
-    {% endif %}
-    </address>
-
-    <dl>
-    {% if member.hobbies %}
-        <dt>My Hobbies</dt> 
-        <dd> {{ member.hobbies }}</dd>
-        <br>
-    {% endif %}
-    {% if member.canhelp %}
-        <dt>I can help with</dt>
-        <dd> {{ member.canhelp }} </dd>
-        <br>
-    {% endif %}
-
-    {% if member.needhelp %}
-        <dt>I could use help with</dt> 
-        <dd>{{ member.needhelp }}</dd>
-    {% endif %}
-    </dl>
-<hr>
-{% endfor %}
+<p class="text-center">
+    <a href="{% url 'members:member_list_pdf' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Printable Version</a>
+</p>
+<div class="row d-flex flex-wrap flex-row justify-content-center">
+    {% for member in member_list %}
+    <div class="card" style="flex: 0 1 20rem; margin: 10px">
+        {% if member.picture %} 
+            <img src="{{ member.picture.url }}" alt="Member Picture" class="card-img-top"> 
+        {% else %}
+            <img src="{% static 'images/default-person.jpg' %}" alt="Picture Placeholder" class="card-img-top"> 
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title" id="{{ member.id }}">
+                {{ member.last_name }}, {{ member.first_name }}
+            </h5>
+            <div class="card-text">
+                <address>
+                    {% if member.address or member.town %} {{ member.address }} {% if member.town %}, {{ member.town }} NY {% endif %}
+                    <br> {% endif %} {% if member.homephone %} (Home) {{ member.homephone }}
+                    <br> {% endif %} {% if member.cellphone %} (Cell) {{ member.cellphone }}
+                    <br> {% endif %} {% if member.email %}
+                    <a href="mailto:{{ member.email }}">{{ member.email }}</a>
+                    {% endif %}
+                </address>
+                <dl>
+                    {% if member.hobbies %}
+                    <dt>My Hobbies</dt>
+                    <dd> {{ member.hobbies }}</dd>
+                    <br> {% endif %} {% if member.canhelp %}
+                    <dt>I can help with</dt>
+                    <dd> {{ member.canhelp }} </dd>
+                    <br> {% endif %} {% if member.needhelp %}
+                    <dt>I could use help with</dt>
+                    <dd>{{ member.needhelp }}</dd>
+                    {% endif %}
+                </dl>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}

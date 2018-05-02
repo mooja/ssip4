@@ -19,6 +19,9 @@ class Member(models.Model):
     needhelp = models.CharField(max_length=1500, null=True, blank=True)
     comments = models.TextField(max_length=5000, null=True, blank=True)
 
+    # picture
+    picture = models.ImageField(upload_to='members/', null=True)
+
     def get_full_name(self):
         return " ".join([self.first_name, self.last_name])
 
