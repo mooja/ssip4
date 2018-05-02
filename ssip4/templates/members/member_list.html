@@ -17,11 +17,9 @@
 {% endblock sidebar %}
 
 {% block content %}
-{% comment %}
 <form role="form">
-        <button type="button" class="btn btn-lg btn-default" onclick="location.href='{% url 'members:member_list_pdf'%}'">Printable Version</button>
+        <button type="button" class="btn btn-lg btn-default" onclick="location.href='{% url 'members:member_list_pdf' %}'">Printable Version</button>
 </form>
-{% endcomment %}
  
 
 {% for member in member_list %}

@@ -10,9 +10,9 @@ urlpatterns = [
         view=views.member_list,
         name='member_list'
     ),
-    # url(
-    #     regex=r'^pdf/',
-    #     view=views.member_list_pdf,
-    #     name='member_list_pdf'
-    # ),
+    url(
+        regex=r'^pdf/',
+        view=views.member_list_pdf,
+        name='member_list_pdf'
+    ),
 ]
