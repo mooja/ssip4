@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} SSIP 209 Minutes {% endblock %}
+{% block splash %} SSIP Minutes{% endblock %}
+
+{% comment %}
+{% block sidebar %}
+<ul>
+    {% for minutes_entry in minutes_entry_list %}
+    <li><a href="#{{ minutes_entry.pk }}">{{ minutes_entry.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock sidebar %}
+{% endcomment %}
+
+{% block content %}
+{% for minutes_entry in minutes_entries %}
+<div class="news-entry">
+    <article id="{{ minutes_entry.pk }}" class="panel-body">
+        <h3>{{ minutes_entry.title|safe }} <span class="text-muted">{% if minutes_entry.author %} by {{ minutes_entry.author }} {% endif %}</h3> 
+        <p class="post-date"><span class="glyphicon glyphicon-calendar"></span> {{ minutes_entry.pub_date|date:"F jS, Y" }}</p>
+        {{ minutes_entry.text|safe }}
+    </article>
+</div>
+{% endfor %}
+{% endblock %}

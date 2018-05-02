@@ -6,7 +6,6 @@ from django.views.generic import TemplateView
 from django.contrib import messages
 # from captcha.fields import ReCaptchaField
 
-# from membernews.models import MemberNewsEntry
 from news.models import NewsEntry
 
 class ContactForm(forms.Form):
@@ -25,6 +24,17 @@ class HomeView(TemplateView):
         context['membernews_entries'] = NewsEntry.objects.filter(newstype='membernews').order_by('-pub_date')
         context['localnews_entries'] = NewsEntry.objects.filter(newstype='news').order_by('-pub_date')
         context['contact_form'] = ContactForm
+        return context
+
+
+class MinutesView(TemplateView):
+    template_name = 'pages/minutes.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TemplateView, self).get_context_data(**kwargs)
+        context['minutes_entries'] = NewsEntry.objects\
+            .filter(title__icontains='minutes')\
+            .order_by('-pub_date')
         return context
 
 

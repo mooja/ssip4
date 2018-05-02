@@ -7,6 +7,7 @@ from django.views import defaults as default_views
 
 from views import HomeView
 from members.views import member_list
+from views import MinutesView
 
 urlpatterns = [
     url(
@@ -18,6 +19,16 @@ urlpatterns = [
         r"^about/$",
         TemplateView.as_view(template_name="pages/about.html"),
         name="about",
+    ),
+    url(
+        r"^service-providers/$",
+        TemplateView.as_view(template_name="pages/service-providers.html"),
+        name="service-providers",
+    ),
+    url(
+        r"^minutes/$",
+        MinutesView.as_view(),
+        name="minutes",
     ),
     url(
         r"^members/", 
