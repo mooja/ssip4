@@ -1,0 +1,13 @@
+{% load crispy_forms_tags %}
+
+<section class="social text-center">
+    <div class="contact-form" style="display: inline-block; width: 50%; margin-top: 3rem">
+        <h2> Have questions, announcements or suggestions? </h2>
+        <h3> We'd love to hear them! </h3>
+        <a class="btn btn-primary" id="contact-us" onclick="document.querySelector('#message-form').classList.toggle('d-none')">Contact Us</a>
+        <form id="message-form" class="d-none" action="{% url 'contact_us' %}" method="post">
+            {% csrf_token %} {{ contact_form|crispy }}
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</section>

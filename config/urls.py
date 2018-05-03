@@ -6,8 +6,9 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
 from views import HomeView
-from members.views import member_list
 from views import MinutesView
+from views import contact_us
+from members.views import member_list
 
 urlpatterns = [
     url(
@@ -34,6 +35,7 @@ urlpatterns = [
         r"^members/", 
         include("members.urls", namespace="members"),
     ),
+    url(r'^contact_us$', contact_us, name='contact_us'),
     url(settings.ADMIN_URL, admin.site.urls),
     # url(
     #     r"^users/",

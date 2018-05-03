@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'rest_framework',
+    'captcha',
 ]
 LOCAL_APPS = [
     'ssip4.users.apps.UsersConfig',
@@ -239,3 +240,8 @@ SOCIALACCOUNT_ADAPTER = 'ssip4.users.adapters.SocialAccountAdapter'
 # Your stuff...
 # ------------------------------------------------------------------------------
 MEMBERS_PASSWORD = env('MEMBERS_PASSWORD')
+
+# contact form captcha
+RECAPTCHA_PUBLIC_KEY = '6LffvSETAAAAAHgwGVSdctl5Zc-2oSmjV-9I94Yc'
+RECAPTCHA_PRIVATE_KEY = env('RECAPTCHA_PRIVATE_KEY', None)
+NOCAPTCHA = True

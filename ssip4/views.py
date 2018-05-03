@@ -4,15 +4,12 @@ from django.shortcuts import redirect
 from django.core.mail import send_mail
 from django.views.generic import TemplateView
 from django.contrib import messages
-# from captcha.fields import ReCaptchaField
+
+from captcha.fields import ReCaptchaField
 
 from news.models import NewsEntry
 
-class ContactForm(forms.Form):
-    name = forms.CharField(label='Your name', max_length=200)
-    email = forms.CharField(label='Your email', max_length=200)
-    message = forms.CharField(widget=forms.Textarea)
-    # captcha = ReCaptchaField()
+
 
 
 class HomeView(TemplateView):
@@ -36,6 +33,13 @@ class MinutesView(TemplateView):
             .filter(title__icontains='minutes')\
             .order_by('-pub_date')
         return context
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(label='Your name', max_length=200)
+    email = forms.CharField(label='Your email', max_length=200)
+    message = forms.CharField(widget=forms.Textarea)
+    captcha = ReCaptchaField()
 
 
 def contact_us(request):

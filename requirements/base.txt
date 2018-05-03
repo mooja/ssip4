@@ -20,3 +20,6 @@ coreapi==2.3.3  # https://github.com/core-api/python-client
 
 # pdf printing
 reportlab==3.4.0
+
+# captcha for the contact form
+django-recaptcha==1.4.0
