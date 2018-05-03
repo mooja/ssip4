@@ -5,3 +5,7 @@ USE_DOCKER=yes
 # Redis
 # ------------------------------------------------------------------------------
 REDIS_URL=redis://redis:6379/0
+DJANGO_READ_DOT_ENV_FILE=TRUE
+DATABASE_URL=postgres://ssip4:123@localhost/ssip4
+MEMBERS_PASSWORD=123
+RECAPTCHA_PRIVATE_KEY=6LffvSETAAAAAIBRGhVZFRko0tiBsRlDA_QWovel
