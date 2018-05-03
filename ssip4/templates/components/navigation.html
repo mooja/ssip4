@@ -1,0 +1,21 @@
+<ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Home
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+    </li>
+    <div class="nav-item">
+        <a href="{% url 'members:member_list' %}" class="nav-link">Members</a>
+    </div>
+    <div class="nav-item">
+        <a href="{% url 'service-providers' %}" class="nav-link">Service Providers</a>
+    </div>
+    <div class="nav-item">
+        <a href="{% url 'minutes' %}" class="nav-link">Minutes</a>
+    </div>
+    <div class="nav-item">
+        <a href="#contact-us" class="nav-link">Contact Us</a>
+    </div>
+</ul>
