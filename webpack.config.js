@@ -13,7 +13,7 @@ module.exports = {
 
             // Sass
             {
-                test: /\.scss$/,
+                test: /\.s[ac]ss$/,
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
                 }, {
@@ -24,6 +24,18 @@ module.exports = {
                         includePaths: ["ssip4/static/sass"]
                     }
                 }]
+            },
+            // Images      {
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            emitFile: false
+                        }
+                    }
+                ]
             }
         ]
     },

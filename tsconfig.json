@@ -6,7 +6,8 @@
         "module": "es6",
         "target": "es5",
         "allowJs": true,
-        "jsx": "react"
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
     },
     "include": [
         "./ssip4/static/typescript/*.js"

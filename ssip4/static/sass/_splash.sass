@@ -1,0 +1,54 @@
+.splash
+  background: linear-gradient(rgba(15, 33, 43, 0.4), rgba(15, 33, 43, 0.4)), url("../images/ssipsplash.jpg")
+  background-size: cover
+  background-position: 50% 60%
+  padding: 2rem 0 3rem 0;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
+  color: #fff
+
+  h1
+    font-weight: 600
+  p
+    font-weight: 400
+
+  .col
+    min-height: 400px
+    display: flex
+    flex-flow: column nowrap
+    justify-content: space-between
+
+  nav
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-content: start
+  
+  .logo
+    font-family: 'Lato'
+    font-size: 40px
+    font-weight: 700
+    letter-spacing: -2px
+    word-spacing: -1px
+  
+  // hero 
+  .hero
+    font-family: 'Roboto Slab', serif
+    font-weight: 800
+    letter-spacing: -1px
+    .lead
+      font-family: 'Roboto', sans-serif
+      letter-spacing: 0
+
+  ul
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-end
+
+    a
+      color: white
+      font-weight: 700
+      text-transform: uppercase
+      text-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.5)
+      &:hover
+        color: #fff
+        text-shadow: none

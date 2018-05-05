@@ -18,8 +18,10 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
         context['news_entries'] = NewsEntry.objects.order_by('-pub_date')
-        context['membernews_entries'] = NewsEntry.objects.filter(newstype='membernews').order_by('-pub_date')
-        context['localnews_entries'] = NewsEntry.objects.filter(newstype='news').order_by('-pub_date')
+        context['membernews_entries'] = NewsEntry.objects\
+            .filter(newstype='membernews')\
+            .order_by('-pub_date')[:3]
+        context['localnews_entries'] = NewsEntry.objects.filter(newstype='news').order_by('-pub_date')[:4]
         context['contact_form'] = ContactForm
         return context
 

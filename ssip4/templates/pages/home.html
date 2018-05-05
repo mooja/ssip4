@@ -1,50 +1,132 @@
-{% extends "base.html" %}
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
-<div class="jumbotron">
-  <h1 class="display-4">Settled and Serving in Place</h1>
-  <p class="lead">Staying Independent and Happy In Our Own Homes</p>
-  <hr class="my-4">
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  </p>
-</div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}SSIP 209 - Settled and Serving in Place{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
+       crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato|Roboto|Roboto+Slab" rel="stylesheet">
 
-<div class="row">
-    <div class="col-md-6">
-    {% for news_entry in membernews_entries %}
-        <div class="card">
-            <div class="card-header">
-                {{ news_entry.title }}
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    {{ news_entry.text|safe }}
-                </p>
-            </div>
-            <div class="class-footer text-muted">
-              {{ news_entry.created|date:"F jS, Y" }}
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+    {% block css %}
+    <link href="{% static 'css/project.css' %}" rel="stylesheet"> {% endblock %}
+</head>
+
+<body>
+    <header class="splash">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <nav>
+                        <div class="logo">
+                            <i class="fas fa-home"></i> SSIP
+                            <span class="shaded">209</span>
+                        </div>
+                        <ul class="nav nav-pills hidden-sm">
+                            {% include "components/navigation.html" %}
+                        </ul>
+                    </nav>
+                    <div class="hero">
+                        <h1>Settled and Serving in Place</h1>
+                        <p class="lead">Staying Independent and Happy In Our Own Homes</p>
+                        <p>
+                            <a class="btn btn-success btn-lg" href="#" role="button">Meet Our Community</a>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    {% endfor %}
-    </div>
-    <div class="col-md-6">
-    {% for news_entry in localnews_entries %}
-        <div class="card">
-            <div class="card-header">
-                {{ news_entry.title }}
+        <section class="events">
+            <div class="container" id="calendar">
             </div>
-            <div class="card-body">
-                <p class="card-text">
-                    {{ news_entry.text|safe }}
-                </p>
-            </div>
-            <div class="class-footer text-muted">
-                 {{ news_entry.created|date:"F jS, Y" }}
+        </section>
+    </header>
+    <section class="news">
+        <div class="container">
+            <div class="row">
+                <div class="col d-sm-none d-md-block">
+                    <h2>Members Write</h2>
+                    {% for news_entry in membernews_entries %}
+                    <div class="card">
+                        <div class="card-header">
+                            {{ news_entry.title }}
+                            <p class="text-muted">
+                                {{ news_entry.created|date:"F jS, Y" }}
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ news_entry.text|safe }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="col d-sm-none d-md-block">
+                    <h2>Local News</h2>
+                    {% for news_entry in localnews_entries %}
+                    <div class="card">
+                        <div class="card-header">
+                            {{ news_entry.title }}
+                            <p class="text-muted">
+                                {{ news_entry.created|date:"F jS, Y" }}
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ news_entry.text|safe }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="col d-none d-sm-block d-md-none">
+                    <h2>Recently</h2>
+                    {% for news_entry in localnews_entries %}
+                    <div class="card">
+                        <div class="card-header">
+                            {{ news_entry.title }}
+                            <p class="text-muted">
+                                {{ news_entry.created|date:"F jS, Y" }}
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                {{ news_entry.text|safe }}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
-    {% endfor %}
-    </div>
-</div>
+    </section>
 
-{% endblock content %}
+    {% include "components/contact_us.html" %}
+
+    {% include "components/footer.html" %}
+
+    {% block javascript %}
+    <!-- Required by Bootstrap v4 beta -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/bundle.js' %}"></script> {% endblock javascript %}
+</body>
+
+</html>
