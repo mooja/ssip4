@@ -5,11 +5,12 @@ $('.form-group').removeClass('row');
 
 // contact form hiding
 $('document').ready(() => {
-    $('#contact-us')
+    $('#contact-us-btn')
         .on('click', e => 
-            $('#message-form').toggleClass('d-done'));
-    $('.card-body *').css('fontFamily', '"Lato", "sans-serif"');
-    $('.card-body *').css('fontSize', "16px");
+            $('#message-form').toggleClass('d-none')
+        );
+    $('section.news .card-body *').css('fontFamily', '"Lato", "sans-serif"');
+    $('section.news .card-body *').css('fontSize', "16px");
 });
 
 // // upcoming events

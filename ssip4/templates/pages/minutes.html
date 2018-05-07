@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} SSIP 209 Minutes {% endblock %}
-{% block splash %} SSIP Minutes{% endblock %}
+{% block splash %} SSIP Minutes {% endblock %}
 
 {% comment %}
 {% block sidebar %}
@@ -13,13 +13,38 @@
 {% endcomment %}
 
 {% block content %}
-{% for minutes_entry in minutes_entries %}
-<div class="news-entry">
-    <article id="{{ minutes_entry.pk }}" class="panel-body">
-        <h3>{{ minutes_entry.title|safe }} <span class="text-muted">{% if minutes_entry.author %} by {{ minutes_entry.author }} {% endif %}</h3> 
-        <p class="post-date"><span class="glyphicon glyphicon-calendar"></span> {{ minutes_entry.pub_date|date:"F jS, Y" }}</p>
-        {{ minutes_entry.text|safe }}
-    </article>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        $('.card-text *').css('fontFamily', '"Lato", "sans-serif"');
+        $('.card-text *').css('fontSize', "16px");
+    });
+</script>
+
+<style>
+    .card-body {
+        padding: 6rem 8rem;
+    }
+</style>
+
+    {% for entry in minutes_entries %}
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">
+                    {{ entry.title }}
+                </h3>
+                <span class="text-muted">{% if entry.author %} by {{entry.author }} {% endif %}</span>
+                    <p class="text-muted">
+                        {{ entry.created|date:"F jS, Y" }}
+                    </p>
+                <div class="card-text text-justify">
+                    {{ entry.text|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{% endfor %}
+    {% endfor %}
 {% endblock %}

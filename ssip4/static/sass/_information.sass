@@ -1,0 +1,83 @@
+header.header-info
+  background-color: #073642
+
+  nav
+    @extend .row
+    display: flex
+    flex-flow: row nowrap
+    justify-content: space-between
+    align-items: center
+    min-height: 100px
+    font-family: 'Lato'
+
+    .nav-logo
+      font-size: 40px
+      font-weight: 700
+      letter-spacing: -2px
+      word-spacing: -1px
+      color: white
+      flex: 1 1 350px
+      flex-flow: row nowrap
+
+    ul.info-nav
+      @extend .col
+      flex: auto
+      display: flex
+      flex-flow: row wrap
+      justify-content: flex-end
+      align-items: top
+      list-style-type: none
+
+    li:hover
+      background: #DC322F
+      border-radius: 25px 
+    
+    a
+      font-weight: 600
+      text-transform: uppercase
+      color: white
+
+
+section.info-title
+  background-color: #5CC6E4
+
+  .row
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    min-height: 180px
+
+  h2.title
+    position: relative
+    top: -35px
+    font-family: 'Lato', sans-serif
+    text-transform: uppercase
+    text-shadow: 3px 2px 0 rgba(0, 0, 0, .1)
+    color: #fff
+    font-weight: 800
+
+
+section.info-content
+  background-color: #EDEFED
+
+  .col
+    top: -5rem
+    position: relative
+    margin-bottom: 2rem
+    
+  .card
+    height: 100%
+    background: #fff
+    border-radius: 3px
+    box-shadow: 0 0 1px rgba(0, 0, 2px, 0.1)
+  
+  .card-body
+    font-family: 'Lato'
+    font-size: 18px
+
+    h2, h3, h4, h5
+      color: #DC322F
+      font-weight: 500
+
+    p
+      margin-bottom: 3em

@@ -1,20 +1,9 @@
-@import "custom_bootstrap_vars";
-@import "~bootstrap/scss/bootstrap";
-@import "splash";
-@import "news";
+@import "custom_bootstrap_vars"
+@import "~bootstrap/scss/bootstrap"
+@import "splash"
+@import "news"
+@import "information"
 
-// project specific CSS goes here
-
-////////////////////////////////
-		//Variables//
-////////////////////////////////
-
-$gray-base:              #000
-$gray-darker:            lighten($gray-base, 13.5%) // #222
-$gray-dark:              lighten($gray-base, 20%)   // #333
-$gray:                   lighten($gray-base, 33.5%) // #555
-$gray-light:             lighten($gray-base, 46.7%) // #777
-$gray-lighter:           lighten($gray-base, 98.5%) // #eee
 
 $brand-primary:         darken(#428bca, 6.5%)
 $brand-primary:         darken(#dc322f, 6.5%)
@@ -24,23 +13,15 @@ $brand-warning:         #f0ad4e
 $brand-danger:          #d9534f
 
 
-//== Scaffolding
-//
-//## Settings for some of the most global styles.
-
-//** Background color for `<body>`.
-// $body-bg:               #ccc
 $body-bg: #edefed
-$text-color:            $gray-darker
-
 $splash-padding-top: 2rem
 $red-darker: darken(#dc322f, 15%)
 $blue-overlay: rgb(15, 33, 43)
 
 
-
-
-
+.contact_us_wrapper
+  padding: 2rem 0
+  background: #5CC6E4
 
 footer
   @extend .container-fluid
@@ -54,7 +35,6 @@ footer
     margin: 2rem auto
   p
     vertical-align: bottom
-
 
 
 
@@ -153,154 +133,3 @@ footer
 //     line-height: 24px
 //     text-align: center
 //     @include box-shadow(rgba(black, 0.4) 1px 1px 3px inset)
-
-// .news-information
-//   @extend .row
-//   padding-bottom: 5rem
-
-// section.information
-//   @include make-md-column(6)
-//   @extend .hidden-xs
-//   @extend .hidden-sm
-
-//   h2
-//     font-weight: 500
-//     font-size: 20px
-//     font-color: gray
-
-//   h3
-//     font-size: 26px
-//     font-weight: 500
-//     margin-top: 0
-//     padding-bottom: 1rem
-//     border-bottom: 1px solid lighten($gray, 55%)
-
-//   p.post-date
-//     color: lighten($gray, 15%)
-//     font-weight: 100
-
-//   .news-entry
-//     @extend .panel
-//     @extend .panel-default
-//     background: #fff
-//     border-radius: 0
-
-//     p
-//       margin-bottom: 2rem
-
-// section.news
-//   @include make-md-column(6)
-//   @extend .hidden-xs
-//   @extend .hidden-sm
-
-//   h2
-//     font-style: italic
-//     font-weight: 500
-//     font-size: 20px
-//     font-color: gray
-//   h3
-//     font-size: 26px
-//     font-weight: 500
-//     margin-top: 0
-//     padding-bottom: 1rem
-//     border-bottom: 1px solid lighten($gray, 55%)
-
-//   p.post-date
-//     color: lighten($gray, 15%)
-//     font-weight: 100
-
-//   .news-entry
-//     @extend .panel
-//     @extend .panel-default
-//     background: #fff
-//     border-radius: 0
-
-// section.news-information-small
-//   @include make-md-column(8)
-//   @extend .visible-sm
-//   @extend .visible-xs
-
-//   h2
-//     font-style: italic
-//     font-weight: 500
-//     font-size: 20px
-//     font-color: gray
-
-//   h3
-//     font-size: 26px
-//     font-weight: 500
-//     margin-top: 0
-//     padding-bottom: 1rem
-//     border-bottom: 1px solid lighten($gray, 55%)
-
-//   p.post-date
-//     color: lighten($gray, 15%)
-//     font-weight: 100
-
-//   .news-entry
-//     @extend .panel
-//     @extend .panel-default
-//     background: #fff
-//     border-radius: 0
-
-//     p
-//       margin-bottom: 2rem
-
-section.social
-  @extend .container-fluid
-  background: #72d0eb
-  padding-bottom: 2rem
-  color: $gray-darker
-
-//   .contact-form
-//     @include make-sm-column(4)
-//     @include make-sm-column-offset(4)
-//     text-align: center
-//     h2
-//       margin-top: 1rem
-//       font-size: 20px
-
-//     h3
-//       font-size: 18px
-//       font-weight: 800
-
-//     a.btn-primary
-//       border: 1px $gray solid
-
-
-
-// section.main-content
-//   @include make-md-column(8)
-//   @include box-shadow(rgba(black, 0.4) 1px 1px 3px )
-//   background: #fff
-//   margin-top: -3rem
-//   margin-bottom: -2rem
-//   padding-top: 4rem
-//   padding-left: 9.50%
-//   padding-right: 4.33%
-//   padding-bottom: 6rem
-//   color: $gray
-//   min-height: 500px 
-
-//   h2
-//     margin-top: 1em
-//   p
-//     text-align: justify
-
-
-// aside.main-aside
-//   @include make-md-column(4)
-//   @extend .hidden-sm
-//   @extend .hidden-xs
-
-//   h2
-//     font-size: 18px
-//     color: $gray
-//     font-style: italic
-//   h3
-//     font-size: 14px
-//     font-weight: 900
-//     color: #073642
-//     margin-left: 1rem
-//   ul
-//     list-style-type: none
