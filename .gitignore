@@ -298,3 +298,4 @@ ssip4/fixtures
 
 # ignore webpack generated bundles
 ssip4/static/js/*.*
+ssip4/static/js/project.js
