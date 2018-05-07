@@ -10,27 +10,33 @@ from captcha.fields import ReCaptchaField
 from news.models import NewsEntry
 
 
-
-
-class HomeView(TemplateView):
-    template_name = 'pages/home.html'
+class SSIPTemplateView(TemplateView):
+    template_name = 'base.html'
 
     def get_context_data(self, **kwargs):
         context = super(TemplateView, self).get_context_data(**kwargs)
+        context['contact_form'] = ContactForm
+        return context
+
+
+class HomeView(SSIPTemplateView):
+    template_name = 'pages/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['news_entries'] = NewsEntry.objects.order_by('-pub_date')
         context['membernews_entries'] = NewsEntry.objects\
             .filter(newstype='membernews')\
             .order_by('-pub_date')[:3]
         context['localnews_entries'] = NewsEntry.objects.filter(newstype='news').order_by('-pub_date')[:4]
-        context['contact_form'] = ContactForm
         return context
 
 
-class MinutesView(TemplateView):
+class MinutesView(SSIPTemplateView):
     template_name = 'pages/minutes.html'
 
     def get_context_data(self, **kwargs):
-        context = super(TemplateView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context['minutes_entries'] = NewsEntry.objects\
             .filter(title__icontains='minutes')\
             .order_by('-pub_date')

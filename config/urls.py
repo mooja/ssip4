@@ -2,13 +2,18 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
-from views import HomeView
-from views import MinutesView
-from views import contact_us
+from views import (
+    SSIPTemplateView,
+    HomeView,
+    MinutesView,
+    contact_us,
+    ContactForm
+)
+
 from members.views import member_list
+
 
 urlpatterns = [
     url(
@@ -18,12 +23,12 @@ urlpatterns = [
     ),
     url(
         r"^about/$",
-        TemplateView.as_view(template_name="pages/about.html"),
+        SSIPTemplateView.as_view(template_name="pages/about.html"),
         name="about",
     ),
     url(
         r"^service-providers/$",
-        TemplateView.as_view(template_name="pages/service-providers.html"),
+        SSIPTemplateView.as_view(template_name="pages/service-providers.html"),
         name="service-providers",
     ),
     url(

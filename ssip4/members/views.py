@@ -4,7 +4,6 @@ from django import forms
 from django.http import HttpResponse
 from django.template import Context, Template
 
-from django.views.generic import DetailView, ListView
 from django.views.decorators.http import require_http_methods
 
 from django.contrib import messages
@@ -13,6 +12,8 @@ from django.conf import settings
 
 from environ import Env
 
+
+from views import ContactForm
 
 from .models import Member
 from .forms import PasswordForm
@@ -43,6 +44,7 @@ def member_list(request):
     member_list = Member.objects.all()
     return render(request, 'members/member_list.html', {
         'member_list': member_list,
+        'contact_form': ContactForm
     })
 
 
