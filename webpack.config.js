@@ -1,44 +1,55 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production'
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
 
 module.exports = {
     entry: './ssip4/static/typescript/index.ts',
+    optimization: {
+        minimizer: [
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
     module: {
         rules: [
-            // Typescript
             {
                 test: /\.tsx?$/,
                 use: 'awesome-typescript-loader',
                 exclude: /node_modules/
             },
-
-            // Sass
             {
                 test: /\.s[ac]ss$/,
-                use: [{
-                    loader: "style-loader" // creates style nodes from JS strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader", // compiles Sass to CSS
-                    options: {
-                        includePaths: ["ssip4/static/sass"]
-                    }
-                }]
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                            options: {
+                                name: '[name].[ext]',
+                        }
+                    },
+                    "css-loader",
+                    "sass-loader"
+                ]
             },
-            // Images      {
             {
                 test: /\.(png|jpg|gif)$/,
                 use: [
                     {
                         loader: 'url-loader',
                         options: {
-                            emitFile: false
+                            name: '[name].[ext]',
+                            limit: 100,
+                            emitFile: false,
+                            publicPath: "/static/images"
                         }
                     }
                 ]
             }
         ]
     },
+    plugins: [
+        new MiniCssExtractPlugin()
+    ],
     resolve: {
         extensions: ['.tsx', '.ts', '.js']
     },
