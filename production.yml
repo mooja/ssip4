@@ -4,13 +4,16 @@ volumes:
   postgres_data: {}
   postgres_backup: {}
   caddy: {}
+  media_files: {}
 
 services:
   django:
     build:
       context: .
       dockerfile: ./compose/production/django/Dockerfile
-    image: ssip4_production_django
+    image: mooja/ssip4_production_django
+    volumes:
+      - media_files:/app/media_files:rw
     depends_on:
       - postgres
       - redis
@@ -23,27 +26,38 @@ services:
     build:
       context: .
       dockerfile: ./compose/production/postgres/Dockerfile
-    image: ssip4_production_postgres
+    image: mooja/ssip4_production_postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - postgres_backup:/backups
     env_file:
       - ./.envs/.production/.postgres
 
-  caddy:
+  nginx:
     build:
-      context: .
-      dockerfile: ./compose/production/caddy/Dockerfile
-    image: ssip4_production_caddy
+      context: ./compose/production/nginx/
+    image: mooja/ssip4_production_nginx
+    volumes:
+      - media_files:/www/app_media:ro
+    ports:
+      - "0.0.0.0:8000:80"
     depends_on:
       - django
-    volumes:
-      - caddy:/root/.caddy
-    env_file:
-      - ./.envs/.production/.caddy
-    ports:
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
+
+  # caddy:
+  #   build:
+  #     context: .
+  #     dockerfile: ./compose/production/caddy/Dockerfile
+  #   image: ssip4_production_caddy
+  #   depends_on:
+  #     - django
+  #   volumes:
+  #     - caddy:/root/.caddy
+  #   env_file:
+  #     - ./.envs/.production/.caddy
+  #   ports:
+  #     - "0.0.0.0:80:80"
+  #     - "0.0.0.0:443:443"
 
   redis:
     image: redis:3.0
