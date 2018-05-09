@@ -29,7 +29,7 @@
     <div class="col col-lg-4 col-md-6" style="margin-bottom: 2rem" >
         <div class="card">
             {% if member.picture %}
-            <img src="{{ member.picture.url }}" alt="Member Picture" class="card-img-top"> {% else %}
+            <img src="/{{ member.picture.url }}" alt="Member Picture" class="card-img-top"> {% else %}
             <img src="{% static 'images/default-person.jpg' %}" alt="Picture Placeholder" class="card-img-top"> {% endif %}
             <div class="card-body">
                 <h5 class="card-title" id="{{ member.id }}">
