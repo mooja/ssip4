@@ -57,10 +57,16 @@
                     <h2>Members Write</h2>
                     {% for news_entry in membernews_entries %}
                     <div class="card">
-                        <div class="card-header">
+                        {% if news_entry.header_image %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
+                        {% endif %}
+                        <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
                                 {{ news_entry.created|date:"F jS, Y" }}
+                                {% if news_entry.author %}
+                                    by {{ news_entry.author }}
+                                {% endif %}
                             </p>
                         </div>
                         <div class="card-body">
@@ -75,7 +81,10 @@
                     <h2>Local News</h2>
                     {% for news_entry in localnews_entries %}
                     <div class="card">
-                        <div class="card-header">
+                        {% if news_entry.header_image %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
+                        {% endif %}
+                        <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
                                 {{ news_entry.created|date:"F jS, Y" }}
@@ -94,7 +103,10 @@
                     <h2>Recently</h2>
                     {% for news_entry in localnews_entries %}
                     <div class="card">
-                        <div class="card-header">
+                        {% if news_entry.header_image %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
+                        {% endif %}
+                        <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
                                 {{ news_entry.created|date:"F jS, Y" }}

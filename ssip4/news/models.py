@@ -10,6 +10,7 @@ class NewsEntry(TimeStampedModel):
     title = models.CharField(max_length=200)
     text = models.TextField(blank=True)
     author = models.CharField(max_length=200, null=True, blank=True)
+    header_image = models.ImageField(null=True, blank=True, default=None)
 
     pub_date = models.DateField(null=False)
 
