@@ -46,14 +46,35 @@
                     </address>
                     <dl>
                         {% if member.hobbies %}
-                        <dt>My Hobbies</dt>
-                        <dd> {{ member.hobbies }}</dd>
-                        <br> {% endif %} {% if member.canhelp %}
-                        <dt>I can help with</dt>
-                        <dd> {{ member.canhelp }} </dd>
-                        <br> {% endif %} {% if member.needhelp %}
-                        <dt>I could use help with</dt>
-                        <dd>{{ member.needhelp }}</dd>
+                            <dt>My Hobbies</dt>
+                            <dd> {{ member.hobbies }}</dd>
+                            <br> 
+                        {% endif %} 
+
+                        {% if member.canhelp %}
+                            <dt>I can help with</dt>
+                            <dd> {{ member.canhelp }} </dd>
+                            {% endif %}
+
+                        {% if member.needhelp %}
+                            <dt>I could use help with</dt>
+                            <dd>{{ member.needhelp }}</dd>
+                        {% endif %}
+
+                        {% if member.emergency_first_name %}
+                            <dt>Emergency Contact</dt>
+                            <dd>{{ member.emergency_first_name }}, {{ member.emergency_last_name }}</dd>
+                            {% if member.emergency_homephone %}
+                                <dd>(Home) {{ member.emergency_homephone }}</dd>
+                            {% endif %}
+                            {% if member.emergency_cellphone %}
+                                <dd>(Cell) {{ member.emergency_cellphone }}</dd>
+                            {% endif %}
+                            {% if member.emergency_comment  %}
+                                <dd>
+                                    {{ member.emergency_comment }}
+                                </dd>
+                            {% endif %}
                         {% endif %}
                     </dl>
                 </div>

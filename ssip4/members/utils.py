@@ -112,4 +112,18 @@ Email: {{ member.email }}
 <strong>I could use help with</strong>: {{ member.needhelp }}
 <br/>
 {% endif %}
+
+
+{% if member.emergency_first_name %}
+    <strong>Emergency Contact</strong>: {{ member.emergency_first_name }}, {{ member.emergency_last_name }} <br/>
+    {% if member.emergency_homephone %}
+        (Home) {{ member.emergency_homephone }} <br/>
+    {% endif %}
+    {% if member.emergency_cellphone %}
+        (Cell) {{ member.emergency_cellphone }} <br/>
+    {% endif %}
+    {% if member.emergency_comment  %}
+        {{ member.emergency_comment }} <br/>
+    {% endif %}
+{% endif %}
 """
