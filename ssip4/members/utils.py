@@ -62,7 +62,7 @@ def make_pdf(ncolumns=4):
 
     template = Template(PDF_TEMPLATE)
     content = []
-    for member in Member.objects.all():
+    for member in Member.objects.filter(is_active=True):
         context = Context({"member": member})
         p = Paragraph(template.render(context), styles["Normal"])
         content.append(p)

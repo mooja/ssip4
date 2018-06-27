@@ -6,6 +6,8 @@ class Member(models.Model):
     last_name = models.CharField(max_length=200, null=False, blank=False)
     birthday = models.CharField(max_length=200, null=True, blank=True)
 
+    is_active = models.BooleanField(default=True, null=False, blank=False)
+
     # contact information
     town = models.CharField(max_length=400, null=True, blank=True)
     address = models.CharField(max_length=400, null=True, blank=True)
@@ -28,6 +30,7 @@ class Member(models.Model):
 
     # picture
     picture = models.ImageField(upload_to='members/', null=True, default=None)
+
 
     def get_full_name(self):
         return " ".join([self.first_name, self.last_name])

@@ -41,7 +41,7 @@ def member_list(request):
         return render(request, 'members/members_password_form.html', {
             'pw_form': pw_form,
         })
-    member_list = Member.objects.all()
+    member_list = Member.objects.filter(is_active=True)
     return render(request, 'members/member_list.html', {
         'member_list': member_list,
         'contact_form': ContactForm
