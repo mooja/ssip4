@@ -68,6 +68,7 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'captcha',
+    'django_summernote'
 ]
 LOCAL_APPS = [
     'ssip4.users.apps.UsersConfig',
