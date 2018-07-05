@@ -29,7 +29,7 @@ class Member(models.Model):
     comments = models.TextField(max_length=5000, null=True, blank=True)
 
     # picture
-    picture = models.ImageField(upload_to='members/', null=True, default=None)
+    picture = models.ImageField(upload_to='members/', null=True, blank=True, default=None)
 
 
     def get_full_name(self):
