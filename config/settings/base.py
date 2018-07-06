@@ -68,7 +68,9 @@ THIRD_PARTY_APPS = [
     'allauth.socialaccount',
     'rest_framework',
     'captcha',
-    'django_summernote'
+    'ckeditor',
+    'ckeditor_uploader'
+
 ]
 LOCAL_APPS = [
     'ssip4.users.apps.UsersConfig',
@@ -237,6 +239,8 @@ ACCOUNT_ADAPTER = 'ssip4.users.adapters.AccountAdapter'
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 SOCIALACCOUNT_ADAPTER = 'ssip4.users.adapters.SocialAccountAdapter'
 
+# ckeditor uploading
+CKEDITOR_UPLOAD_PATH = 'ckeditor_uploads/'
 
 # Your stuff...
 # ------------------------------------------------------------------------------

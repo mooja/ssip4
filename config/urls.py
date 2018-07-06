@@ -47,7 +47,7 @@ urlpatterns = [
     #     include("ssip4.users.urls", namespace="users"),
     # ),
     # url(r"^accounts/", include("allauth.urls")),
-    url(r'^summernote/', include('django_summernote.urls')),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )

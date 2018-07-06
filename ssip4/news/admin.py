@@ -1,12 +1,13 @@
 from django import forms
 from django.contrib import admin
-from django_summernote.widgets import SummernoteWidget
+
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 from .models import NewsEntry
 
 
 class NewsEntryAdminForm(forms.ModelForm):
-    text = forms.CharField(widget=SummernoteWidget)
+    text = forms.CharField(widget=CKEditorUploadingWidget())
 
     class Meta:
         model = NewsEntry

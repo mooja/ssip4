@@ -25,4 +25,4 @@ reportlab==3.4.0
 django-recaptcha==1.4.0
 
 # django summernote for image upload
-django-summernote==0.8.8.7
+django-ckeditor==5.5.0
