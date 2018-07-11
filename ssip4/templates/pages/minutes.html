@@ -13,7 +13,6 @@
 {% endcomment %}
 
 {% block content %}
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         $('.card-text *').css('fontFamily', '"Lato", "sans-serif"');
@@ -21,13 +20,7 @@
     });
 </script>
 
-<style>
-    .card-body {
-        padding: 6rem 8rem;
-    }
-</style>
-
-    {% for entry in minutes_entries %}
+{% for entry in minutes_entries %}
 <div class="row">
     <div class="col">
         <div class="card">
@@ -35,10 +28,7 @@
                 <h3 class="card-title">
                     {{ entry.title }}
                 </h3>
-                <span class="text-muted">{% if entry.author %} by {{entry.author }} {% endif %}</span>
-                    <p class="text-muted">
-                        {{ entry.created|date:"F jS, Y" }}
-                    </p>
+                <span class="text-muted">{% if entry.author %} by {{entry.author }} {% endif %} {{ entry.created|date:"F jS, Y" }} </span>
                 <div class="card-text text-justify">
                     {{ entry.text|safe }}
                 </div>
@@ -46,5 +36,5 @@
         </div>
     </div>
 </div>
-    {% endfor %}
+{% endfor %}
 {% endblock %}
