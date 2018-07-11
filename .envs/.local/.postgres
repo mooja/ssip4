@@ -1,5 +1,5 @@
 # PostgreSQL
 # ------------------------------------------------------------------------------
 POSTGRES_DB=ssip4
-POSTGRES_USER=WWEMEzGqEpZDUyivPgSNMzcSPLCGGTrF
-POSTGRES_PASSWORD=BHauUVihDJqTSiS5qocno7iCOPaDGrEh8rMvuldYSfMmbq8qy3sPTo89KDCYeQSM
+POSTGRES_USER=ssip4
+POSTGRES_PASSWORD=123
