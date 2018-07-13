@@ -24,10 +24,29 @@
 
 <body>
     <header class="splash">
+        <nav class="nav-phone navbar navbar-dark bg-info sticky-top">
+            <a href="" class="navbar-brand">
+                <i class="fas fa-home"></i> SSIP 209
+            </a>
+            <button class="navbar-toggler" 
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    {% include "components/navigation.html" %}
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav>
+                    <nav class="nav-desktop">
                         <div class="logo">
                             <i class="fas fa-home"></i> SSIP 209
                         </div>
@@ -45,15 +64,11 @@
                 </div>
             </div>
         </div>
-        <section class="events">
-            <div class="container" id="calendar">
-            </div>
-        </section>
     </header>
     <section class="news">
         <div class="container">
             <div class="row">
-                <div class="col d-sm-none d-md-block">
+                <div class="col news-desktop">
                     <h2>Members Write</h2>
                     {% for news_entry in membernews_entries %}
                     <div class="card">
@@ -63,21 +78,19 @@
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
-                                {{ news_entry.created|date:"F jS, Y" }}
+                                {{ news_entry.created|date:"F Y" }}
                                 {% if news_entry.author %}
                                     by {{ news_entry.author }}
                                 {% endif %}
                             </p>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">
                                 {{ news_entry.text|safe }}
-                            </p>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
-                <div class="col d-sm-none d-md-block">
+                <div class="col news-desktop">
                     <h2>Local News</h2>
                     {% for news_entry in localnews_entries %}
                     <div class="card">
@@ -87,20 +100,17 @@
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
-                                {{ news_entry.created|date:"F jS, Y" }}
+                                {{ news_entry.created|date:"F Y" }}
                             </p>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">
                                 {{ news_entry.text|safe }}
-                            </p>
                         </div>
                     </div>
                     {% endfor %}
                 </div>
 
-                <div class="col d-none d-sm-block d-md-none">
-                    <h2>Recently</h2>
+                <div class="col news-phone">
                     {% for news_entry in localnews_entries %}
                     <div class="card">
                         {% if news_entry.header_image %}
@@ -109,13 +119,11 @@
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
-                                {{ news_entry.created|date:"F jS, Y" }}
+                                {{ news_entry.created|date:"F Y" }}
                             </p>
                         </div>
                         <div class="card-body">
-                            <p class="card-text">
                                 {{ news_entry.text|safe }}
-                            </p>
                         </div>
                     </div>
                     {% endfor %}
