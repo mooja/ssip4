@@ -37,9 +37,6 @@ header.header-info
       text-transform: uppercase
       color: white
 
-  @include media-breakpoint-up(md)
-    margin-bottom: 5rem
-
 
 section.info-title
   background-color: #5CC6E4
@@ -48,7 +45,7 @@ section.info-title
     display: flex
     flex-flow: row nowrap
     align-items: center
-    min-height: 120px
+    min-height: 100px
 
   h2.title
     font-family: 'Lato', sans-serif
@@ -58,8 +55,7 @@ section.info-title
     font-weight: 800
 
   @include media-breakpoint-up(md)
-    min-height: 180px
-    margin-top: -5rem
+    min-height: 150px
 
 
 section.info-content
@@ -68,41 +64,25 @@ section.info-content
   .card
     height: 100%
     background: #fff
-    border-radius: 3px
     box-shadow: 0 0 1px rgba(0, 0, 2px, 0.1)
   
   .card-body
     font-family: 'Lato'
     font-size: 18px
-
     h2, h3, h4, h5
       color: #DC322F
       font-weight: 500
-
+  
+  .card-body.info-page
     p
       text-indent: 2rem
-      margin-bottom: 3em
+      margin-bottom: 3rem
       text-align: justify
 
-@include media-breakpoint-up(xs)
-  .container.content
-    padding: 0
-    max-with: 100%
-
-    .col
-      padding: 0
-
-    .row
-      padding: 0
-
 @include media-breakpoint-up(md)
-  .content
-    .col
-      margin-top: -5rem
-      margin-bottom: 2rem
+  .card-body.info-page
+      padding: 3rem 5rem
 
-  .card-body
+@include media-breakpoint-up(lg)
+  .card-body.info-page
       padding: 5rem 8rem
-
-.card + .card
-  margin-top: 2rem

@@ -12,28 +12,29 @@
 
 {% block content %}
 <div class="row">
-    <div class="col">
-        <p class="text-center">
-            <a href="{% url 'members:member_list_pdf' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Printable Version</a>
-        </p>
-    </div>
-</div>
-<div class="row">
-    <style> h5 { font-size: 25px; } </style>
-    <div class="col col-sm-12">
+    <div class="col" style="margin-top: 2rem">
         <div class="card">
-            <div class="card-text" style="overflow: auto;">
-                <ul class="p-5 " style="display: flex; list-style-type: none; flex-flow: column wrap; max-height: 30rem">
+            <div class="card-text">
+                <ul class="name-list">
                     {% for member in member_list %}
-                    <li class="mx-3"><a href="#{{ member.id }}">{{ member.last_name }}, {{ member.first_name }}</a></li>
+                    <li class="mx-2"><a href="#{{ member.id }}">{{ member.last_name }}, {{ member.first_name }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
         </div>
     </div>
+</div>
+<div class="row members-cards-row">
+    <div class="col col-sm-12 member-col">
+        <div class="card ">
+            <div class="card-body text-center">
+                <a href="{% url 'members:member_list_pdf' %}" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Printable Version</a>
+            </div>
+        </div>
+    </div>
     {% for member in member_list %}
-    <div class="col col-lg-4 col-md-6" style="margin-bottom: 2rem" >
-        <div class="card" id="{{ member.id }}">
+    <div class="col col-lg-4 col-md-6 col-sm-12 member-col">
+        <div class="card member-info" id="{{ member.id }}">
             {% if member.picture %}
             <img src="/{{ member.picture.url }}" alt="Member Picture" class="card-img-top"> {% else %}
             <img src="{% static 'images/default-person.jpg' %}" alt="Picture Placeholder" class="card-img-top"> {% endif %}

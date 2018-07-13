@@ -1,0 +1,25 @@
+.col.member-col
+    margin-top: 2rem
+
+.name-list
+    padding: 0
+    overflow: auto
+    display: flex
+    list-style-type: none
+    flex-flow: column wrap
+    max-height: 40rem
+
+@include media-breakpoint-up(md)
+    .name-list
+        padding: 1rem 3rem
+        overflow: auto
+        max-height: 36rem
+
+
+@include media-breakpoint-up(lg)
+    .name-list
+        padding: 3rem 8rem
+        max-height: 28rem
+
+.member-info h5
+    font-size: 25px
