@@ -20,21 +20,21 @@
     });
 </script>
 
-{% for entry in minutes_entries %}
 <div class="row">
-    <div class="col">
+    {% for entry in minutes_entries %}
+    <div class="col col-sm-12 minutes-col">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body info-page">
                 <h3 class="card-title">
                     {{ entry.title }}
                 </h3>
-                <span class="text-muted">{% if entry.author %} by {{entry.author }} {% endif %} {{ entry.created|date:"F jS, Y" }} </span>
+                <span class="text-muted">{% if entry.author %} by {{entry.author }} {% endif %} {{ entry.created|date:"F Y" }} </span>
                 <div class="card-text text-justify">
                     {{ entry.text|safe }}
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
