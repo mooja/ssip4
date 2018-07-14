@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="col news-phone">
-                    {% for news_entry in localnews_entries %}
+                    {% for news_entry in news_entries %}
                     <div class="card">
                         {% if news_entry.header_image %}
                         <img class="card-img-top" src="{{ news_entry.header_image.url }}">

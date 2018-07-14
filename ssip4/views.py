@@ -24,7 +24,7 @@ class HomeView(SSIPTemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['news_entries'] = NewsEntry.objects.order_by('-pub_date')
+        context['news_entries'] = NewsEntry.objects.order_by('-pub_date')[:6]
         context['membernews_entries'] = NewsEntry.objects\
             .filter(newstype='membernews')\
             .order_by('-pub_date')[:3]
