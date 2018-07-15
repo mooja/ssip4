@@ -24,8 +24,8 @@
         </div>
     </div>
 </div>
-<div class="row members-cards-row">
-    <div class="col col-sm-12 member-col">
+<div class="row">
+    <div class="col col-sm-12 col-xs-12 member-col">
         <div class="card ">
             <div class="card-body text-center">
                 <a href="{% url 'members:member_list_pdf' %}" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Printable Version</a>
@@ -33,13 +33,13 @@
         </div>
     </div>
     {% for member in member_list %}
-    <div class="col col-lg-4 col-md-6 col-sm-12 member-col">
+    <div class="col col-12 col-md-6 col-lg-4 member-col">
         <div class="card member-info" id="{{ member.id }}">
             {% if member.picture %}
             <img src="/{{ member.picture.url }}" alt="Member Picture" class="card-img-top"> {% else %}
             <img src="{% static 'images/default-person.jpg' %}" alt="Picture Placeholder" class="card-img-top"> {% endif %}
             <div class="card-body">
-                <h5 class="card-title" >
+                <h5 class="card-title">
                     {{ member.last_name }}, {{ member.first_name }}
                 </h5>
                 <div class="card-text">
@@ -53,36 +53,26 @@
                     </address>
                     <dl>
                         {% if member.hobbies %}
-                            <dt>My Hobbies</dt>
-                            <dd> {{ member.hobbies }}</dd>
-                            <br> 
-                        {% endif %} 
-
-                        {% if member.canhelp %}
-                            <dt>I can help with</dt>
-                            <dd> {{ member.canhelp }} </dd>
-                            {% endif %}
-
-                        {% if member.needhelp %}
-                            <dt>I could use help with</dt>
-                            <dd>{{ member.needhelp }}</dd>
-                        {% endif %}
-
-                        {% if member.emergency_first_name %}
-                            <dt>Emergency Contact</dt>
-                            <dd>{{ member.emergency_first_name }}, {{ member.emergency_last_name }}</dd>
-                            {% if member.emergency_homephone %}
-                                <dd>(Home) {{ member.emergency_homephone }}</dd>
-                            {% endif %}
-                            {% if member.emergency_cellphone %}
-                                <dd>(Cell) {{ member.emergency_cellphone }}</dd>
-                            {% endif %}
-                            {% if member.emergency_comment  %}
-                                <dd>
-                                    {{ member.emergency_comment }}
-                                </dd>
-                            {% endif %}
-                        {% endif %}
+                        <dt>My Hobbies</dt>
+                        <dd> {{ member.hobbies }}</dd>
+                        <br> {% endif %} {% if member.canhelp %}
+                        <dt>I can help with</dt>
+                        <dd> {{ member.canhelp }} </dd>
+                        {% endif %} {% if member.needhelp %}
+                        <dt>I could use help with</dt>
+                        <dd>{{ member.needhelp }}</dd>
+                        {% endif %} {% if member.emergency_first_name %}
+                        <dt>Emergency Contact</dt>
+                        <dd>{{ member.emergency_first_name }}, {{ member.emergency_last_name }}</dd>
+                        {% if member.emergency_homephone %}
+                        <dd>(Home) {{ member.emergency_homephone }}</dd>
+                        {% endif %} {% if member.emergency_cellphone %}
+                        <dd>(Cell) {{ member.emergency_cellphone }}</dd>
+                        {% endif %} {% if member.emergency_comment %}
+                        <dd>
+                            {{ member.emergency_comment }}
+                        </dd>
+                        {% endif %} {% endif %}
                     </dl>
                 </div>
             </div>
