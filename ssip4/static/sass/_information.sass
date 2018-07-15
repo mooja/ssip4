@@ -1,14 +1,19 @@
+nav.nav-desktop
+  display: none
+
+@include media-breakpoint-up(md)
+  nav.nav-desktop
+    display: flex
+
 header.header-info
   background-color: #073642
 
   nav.nav-desktop
-    @extend .row
-    display: flex
     flex-flow: row nowrap
     justify-content: space-between
     align-items: center
-    min-height: 100px
     font-family: 'Lato'
+    min-height: 100px
 
     .nav-logo
       font-size: 40px
@@ -38,6 +43,7 @@ header.header-info
       color: white
 
 
+
 section.info-title
   background-color: #5CC6E4
 
@@ -53,9 +59,6 @@ section.info-title
     text-shadow: 3px 2px 0 rgba(0, 0, 0, .1)
     color: #fff
     font-weight: 800
-
-  @include media-breakpoint-up(md)
-    min-height: 150px
 
 
 section.info-content
@@ -86,7 +89,6 @@ section.info-content
 @include media-breakpoint-up(lg)
   .card-body.info-page
       padding: 5rem 8rem
-
 
 .minutes-col
   margin-bottom: 2rem
