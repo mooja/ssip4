@@ -25,13 +25,30 @@
 
 <body>
   <header class="header-info">
-    <div class="container">
-      <nav class="nav-desktop">
-        <div class="nav-logo"><i class="fas fa-home"></i> SSIP 209</div>
-        <ul class="info-nav">
+    <nav class="nav-phone navbar navbar-dark sticky-top">
+      <a href="" class="navbar-brand">
+        <i class="fas fa-home"></i> SSIP 209
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
           {% include "components/navigation.html" %}
         </ul>
-      </nav>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <nav class="col nav-desktop">
+          <div class="nav-logo">
+            <i class="fas fa-home"></i> SSIP 209</div>
+          <ul class="col info-nav">
+            {% include "components/navigation.html" %}
+          </ul>
+        </nav>
+      </div>
     </div>
   </header>
 
