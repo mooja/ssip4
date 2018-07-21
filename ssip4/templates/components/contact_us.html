@@ -1,17 +1,15 @@
 {% load crispy_forms_tags %}
 
-<section class="contact_us_wrapper text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col" id="contact-form">
-                <h2> Have questions, announcements or suggestions? </h2>
-                <h3> We'd love to hear them! </h3>
-                <a class="btn btn-primary" id="contact-us-btn">Contact Us</a>
-                <form id="message-form" class="d-none" action="{% url 'contact_us' %}" method="post">
-                    {% csrf_token %} {{ contact_form|crispy }}
-                    <input type="submit" value="Send">
-                </form>
-            </div>
+<section class="contact_us">
+    <div class="row">
+        <div id="contact-form">
+            <h2> Have questions, announcements or suggestions? </h2>
+            <h3> We'd love to hear them! </h3>
+            <a class="btn btn-primary" id="contact-us-btn">Contact Us</a>
+            <form id="message-form" class="d-none" action="{% url 'contact_us' %}" method="post">
+                {% csrf_token %} {{ contact_form|crispy }}
+                <input type="submit" value="Send">
+            </form>
         </div>
     </div>
 </section>
