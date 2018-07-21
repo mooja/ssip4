@@ -1,9 +1,12 @@
-@include media-breakpoint-up(md)
-  nav.nav-phone
+nav.nav-phone
+  @include media-breakpoint-up(md)
     display: none
 
 nav.nav-desktop
   display: none
+  @include media-breakpoint-up(md)
+    display: flex
+
   flex-flow: row nowrap
   justify-content: space-between
   align-content: center
@@ -24,10 +27,6 @@ nav.nav-desktop
         background: #DC322F
         border-radius: 1.5rem
 
-@include media-breakpoint-up(md)
-  nav.nav-desktop
-    display: flex
-
 
 /// --- splash 
 
@@ -38,6 +37,8 @@ nav.nav-desktop
   text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
   color: #fff
   padding-bottom: 3rem
+  @include media-breakpoint-up(md)
+    padding: 2rem 0 3rem 0
 
   h1
     margin-top: 3rem
@@ -47,37 +48,34 @@ nav.nav-desktop
     font-weight: 400
     text-align: center
 
+  @include media-breakpoint-up(md)
+    h1, p
+      text-align: left
+
   .col
     display: flex
     flex-flow: column nowrap
     justify-content: space-between
     min-height: 270px
-
-
-@include media-breakpoint-up(md)
-  .splash
-    padding: 2rem 0 3rem 0;
-
-    h1, p
-      text-align: left
-
-    .col
+    @include media-breakpoint-up(md)
       min-height: 400px
+
+
+  .logo
+    font-family: 'Lato'
+    font-size: 40px
+    font-weight: 700
+    letter-spacing: -2px
+    word-spacing: -1px
     
-    .logo
-      font-family: 'Lato'
-      font-size: 40px
-      font-weight: 700
-      letter-spacing: -2px
-      word-spacing: -1px
-    
-    .hero
-      font-family: 'Roboto Slab', serif
-      font-weight: 800
-      letter-spacing: -1px
-      .lead
-        font-family: 'Roboto', sans-serif
-        letter-spacing: 0
+  .hero
+    font-family: 'Roboto Slab', serif
+    font-weight: 800
+    letter-spacing: -1px
+
+    .lead
+      font-family: 'Roboto', sans-serif
+      letter-spacing: 0
 
 // --- spash over
 
@@ -86,12 +84,10 @@ nav.nav-desktop
 
 .news-phone
   padding-top: 2rem
+  @include media-breakpoint-up(lg)
+    display: none
 
 .news-desktop
   display: none
-
-@include media-breakpoint-up(lg)
-  .news-phone
-    display: none
-  .news-desktop
+  @include media-breakpoint-up(lg)
     display: block
