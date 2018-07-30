@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/"
+        crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto|Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'js/main.css' %}">
 
@@ -28,13 +29,8 @@
             <a href="" class="navbar-brand">
                 <i class="fas fa-home"></i> SSIP 209
             </a>
-            <button class="navbar-toggler" 
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent" 
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -44,24 +40,20 @@
             </div>
         </nav>
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <nav class="nav-desktop">
-                        <div class="logo">
-                            <i class="fas fa-home"></i> SSIP 209
-                        </div>
-                        <ul class="nav">
-                            {% include "components/navigation.html" %}
-                        </ul>
-                    </nav>
-                    <div class="hero">
-                        <h1>Settled and Serving in Place</h1>
-                        <p class="lead">Staying Independent and Happy In Our Own Homes</p>
-                        <p>
-                            <a class="btn btn-success btn-lg" href="{% url 'about' %}" role="button">Meet Our Community</a>
-                        </p>
-                    </div>
+            <nav class="nav-desktop">
+                <div class="logo">
+                    <i class="fas fa-home"></i> SSIP 209
                 </div>
+                <ul class="nav">
+                    {% include "components/navigation.html" %}
+                </ul>
+            </nav>
+            <div class="hero">
+                <h1>Settled and Serving in Place</h1>
+                <p class="lead">Staying Independent and Happy In Our Own Homes</p>
+                <p>
+                    <a class="btn btn-success btn-lg" href="{% url 'about' %}" role="button">Meet Our Community</a>
+                </p>
             </div>
         </div>
     </header>
@@ -73,19 +65,15 @@
                     {% for news_entry in membernews_entries %}
                     <div class="card">
                         {% if news_entry.header_image %}
-                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
-                        {% endif %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}"> {% endif %}
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
-                                {{ news_entry.created|date:"F Y" }}
-                                {% if news_entry.author %}
-                                    by {{ news_entry.author }}
-                                {% endif %}
+                                {{ news_entry.created|date:"F Y" }} {% if news_entry.author %} by {{ news_entry.author }} {% endif %}
                             </p>
                         </div>
                         <div class="card-body">
-                                {{ news_entry.text|safe }}
+                            {{ news_entry.text|safe }}
                         </div>
                     </div>
                     {% endfor %}
@@ -95,8 +83,7 @@
                     {% for news_entry in localnews_entries %}
                     <div class="card">
                         {% if news_entry.header_image %}
-                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
-                        {% endif %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}"> {% endif %}
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
@@ -104,7 +91,7 @@
                             </p>
                         </div>
                         <div class="card-body">
-                                {{ news_entry.text|safe }}
+                            {{ news_entry.text|safe }}
                         </div>
                     </div>
                     {% endfor %}
@@ -114,8 +101,7 @@
                     {% for news_entry in news_entries %}
                     <div class="card">
                         {% if news_entry.header_image %}
-                        <img class="card-img-top" src="{{ news_entry.header_image.url }}">
-                        {% endif %}
+                        <img class="card-img-top" src="{{ news_entry.header_image.url }}"> {% endif %}
                         <div class="card-header {% if news_entry.header_image %} card-header-picture{% endif %}">
                             {{ news_entry.title }}
                             <p class="text-muted">
@@ -123,7 +109,7 @@
                             </p>
                         </div>
                         <div class="card-body">
-                                {{ news_entry.text|safe }}
+                            {{ news_entry.text|safe }}
                         </div>
                     </div>
                     {% endfor %}
@@ -132,11 +118,7 @@
         </div>
     </section>
 
-    {% include "components/contact_us.html" %}
-
-    {% include "components/footer.html" %}
-
-    {% block javascript %}
+    {% include "components/contact_us.html" %} {% include "components/footer.html" %} {% block javascript %}
     <!-- Required by Bootstrap v4 beta -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

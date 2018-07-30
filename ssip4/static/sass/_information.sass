@@ -1,55 +1,52 @@
-nav.nav-desktop
-  display: none
-
-@include media-breakpoint-up(md)
-  nav.nav-desktop
-    display: flex
-
 header.header-info
   background-color: #073642
 
-  nav.nav-desktop
-    flex-flow: row nowrap
-    justify-content: space-between
-    align-items: center
-    font-family: 'Lato'
-    min-height: 100px
+nav.nav-desktop
+  @include make-row()
+  display: none
+  @include media-breakpoint-up(md)
+    display: flex
+  flex-flow: row nowrap
+  justify-content: space-between
+  font-family: 'Lato'
+  min-height: 100px
+  padding-top: 1rem
 
-    .nav-logo
-      font-size: 40px
-      font-weight: 700
-      letter-spacing: -2px
-      word-spacing: -1px
-      color: white
-      flex: 1 1 350px
-      flex-flow: row nowrap
+  .nav-logo
+    margin-left: 15px
+    font-size: 40px
+    font-weight: 700
+    letter-spacing: -2px
+    word-spacing: -1px
+    color: white
+    flex: 0 0 220px
 
-    ul.info-nav
-      @extend .col
-      flex: auto
-      display: flex
-      flex-flow: row wrap
-      justify-content: flex-end
-      align-items: top
-      list-style-type: none
+  ul.info-nav
+    flex: 20 1 auto
+    display: flex
+    flex-flow: row wrap
+    justify-content: flex-end
+    align-content: space-between
+    align-items: space-between
+    list-style-type: none
 
-    li:hover
-      background: #DC322F
-      border-radius: 25px 
-    
-    a
-      font-weight: 600
-      text-transform: uppercase
-      color: white
+  li:hover
+    background: #DC322F
+    border-radius: 25px 
+  
+  a
+    font-weight: 600
+    text-transform: uppercase
+    color: white
 
 
 
 section.info-title
   background-color: #5CC6E4
 
-  .row
+  .container
     display: flex
-    flex-flow: row nowrap
+    flex-flow: row no-wrap
     align-items: center
     min-height: 100px
 
@@ -58,7 +55,7 @@ section.info-title
     text-transform: uppercase
     text-shadow: 3px 2px 0 rgba(0, 0, 0, .1)
     color: #fff
-    font-weight: 800
+    font-weight: 600
 
 
 section.info-content

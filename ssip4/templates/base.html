@@ -40,11 +40,11 @@
       </div>
     </nav>
     <div class="container">
-      <div class="row">
-        <nav class="col nav-desktop">
+        <nav class="nav-desktop">
           <div class="nav-logo">
-            <i class="fas fa-home"></i> SSIP 209</div>
-          <ul class="col info-nav">
+            <i class="fas fa-home"></i> SSIP 209
+          </div>
+          <ul class="info-nav">
             {% include "components/navigation.html" %}
           </ul>
         </nav>
@@ -54,35 +54,23 @@
 
   <section class="info-title">
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <h2 class="title">
-            {% block splash %}
-              Page Title
-            {% endblock splash %}
-          </h2>
-        </div>
-      </div>
+      <h2 class="title">
+        {% block splash %} Page Title {% endblock splash %}
+      </h2>
     </div>
   </section>
-
-  {% if messages %}
-  <section class="info-content">
-    <div class="container content" style="min-height: 600px">
-     {% for message in messages %}
-      <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
-     {% endfor %}  
-    </div>
-  </section>
-  {% endif %}
 
   <section class="info-content">
     <div class="container content">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+            {% endfor %}  
+        {% endif %}
         {% block content %}
         {% endblock content %}
     </div>
   </section>
-
 
   {% block modal %}{% endblock modal %} 
 
