@@ -7,7 +7,6 @@ from django.views import defaults as default_views
 from views import (
     SSIPTemplateView,
     HomeView,
-    MinutesView,
     contact_us,
     ContactForm
 )
@@ -30,11 +29,6 @@ urlpatterns = [
         r"^service-providers/$",
         SSIPTemplateView.as_view(template_name="pages/service-providers.html"),
         name="service-providers",
-    ),
-    url(
-        r"^minutes/$",
-        MinutesView.as_view(),
-        name="minutes",
     ),
     url(
         r"^members/", 

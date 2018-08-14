@@ -32,17 +32,6 @@ class HomeView(SSIPTemplateView):
         return context
 
 
-class MinutesView(SSIPTemplateView):
-    template_name = 'pages/minutes.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['minutes_entries'] = NewsEntry.objects\
-            .filter(title__icontains='minutes')\
-            .order_by('-pub_date')
-        return context
-
-
 class ContactForm(forms.Form):
     name = forms.CharField(label='Your name', max_length=200)
     email = forms.CharField(label='Your email', max_length=200)
