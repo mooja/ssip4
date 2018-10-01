@@ -5,7 +5,8 @@
         <div id="contact-form">
             <h2> Have questions, announcements or suggestions? </h2>
             <h3> We'd love to hear them! </h3>
-            <a class="btn btn-primary" id="contact-us-btn">Contact Us</a>
+            <h3> (845) 706-0182 </h3>
+            <a class="btn btn-primary" id="contact-us-btn">Or Send Us A Message</a>
             <form id="message-form" class="d-none" action="{% url 'contact_us' %}" method="post">
                 {% csrf_token %} {{ contact_form|crispy }}
                 <input type="submit" value="Send">
