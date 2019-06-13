@@ -26,6 +26,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "bootstrap": "4.1.1"
+    "bootstrap": "4.1.1",
+    "macaddress": "^0.2.9"
   }
 }
